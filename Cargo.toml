@@ -1,0 +1,25 @@
+[package]
+name = "nep4-rs"
+version = "0.1.0"
+authors = ["Near Inc <hello@near.org>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+serde = { version = "1", features = ["derive", "alloc"], default-features = false }
+serde_json = {version = "1", default-features=false, features = ["alloc"]}
+near-sdk-pure = {git = "https://github.com/snjax/near-sdk-pure-rs", branch="main"}
+borsh = {version = "0.8.1", default-features=false}
+wee_alloc = "0.4.5"
+
+[profile.release]
+codegen-units = 1
+# Tell `rustc` to optimize for small code size.
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
+# Opt into extra safety checks on arithmetic operations https://stackoverflow.com/a/64136471/249801
+overflow-checks = true

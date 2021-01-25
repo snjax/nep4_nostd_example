@@ -1,0 +1,22 @@
+{
+    "name": "nep4",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "RUSTFLAGS='-C link-arg=-s' cargo +nightly-2020-10-05 build --target wasm32-unknown-unknown --release -Z features=host_dep",
+      "postbuild": "cp target/wasm32-unknown-unknown/release/*.wasm ./res/"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/near-examples/rust-fungible-token.git"
+    },
+    "keywords": [
+      "near-protocol",
+      "blockchain",
+      "rust",
+      "smart-contract",
+      "fungible-token",
+      "tokens"
+    ],
+    "license": "(MIT AND Apache-2.0)",
+    "devDependencies": {}
+  }
